@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<h2 class="text-center mt-5 ">{{ profile.user_type }}: {{ profile.first_name }}</h2>
+<div class="container mb-5 mt-5">
+    <div class="row ">
+        <div class="d-flex justify-content-around">
+            <div class="col-md-3">
+            <div class="card card-body mr-5">
+                <h3 style="text-align: center">Avatar</h3>
+                <img class="profile-pic" src="{{profile.image.url}}">
+            <a href="{% url 'edit_profile' pk=user.pk %}" class="btn btn-success">Change Avatar</a>
+            </div>
+        </div>
+
+            <div class="col-md-3 mb-5" style="font-size: 20px">
+            <div class="card card-body">
+                <p>First Name: {{ profile.first_name }}</p>
+                <p>Last Name: {{ profile.last_name }}</p>
+                <p>Username: {{ profile.username }}</p>
+                <p>Email: {{ profile.email }}</p>
+                <p>Phone: {{ profile.phone }}</p>
+                <p>Country: {{ profile.country }}</p>
+                <p>City: {{ profile.city }}</p>
+                <p>Address: {{ profile.address }}</p>
+		    </div>
+        </div>
+        </div>
+
+        <a href="{% url 'logout' %}" class="btn btn-danger mt-5">Logout</a>
+    </div>
+</div>
+
+{% endblock main %}

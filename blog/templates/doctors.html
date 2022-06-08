@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block main %}
+
+<h1 class="text-center mt-5">Doctors</h1>
+<div class="container">
+    <div class="row mb-4 mt-5">
+        {% for doctor in doctors %}
+        <div class="col-4 mt-5 mb-5">
+            <div class="card">
+                <div class="card card-body">
+                    <h1>DOCTOR: {{ doctor.first_name }} </h1>
+                    <img src="{{ doctor.image.url }}" alt="">
+                    <a class="btn btn-success" href="{% url 'makeappointments' %}">Appointment</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <strong class="text-center">Empty</strong>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock main %}

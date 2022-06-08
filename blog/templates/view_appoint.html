@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block main %}
+
+<h1 class="text-center mt-5">View Appoint</h1>
+<div id="wrapper">
+        <div class="page-content-wrapper">
+            <div class="container-fluid">
+                <h2 class="text-center">UPCOMING APPOINTMENTS</h2>
+                <div class="text-center" role="tablist" id="accordion-1">
+                    {% for i in upcomming_appointments %}
+                    <ul class = "collapsible popout text-center" data-collapsible = "accordion">
+                        <li class="card">
+                            <div class = "card-header collapsible-header">
+                                <h5 style="color:blue;"><a><i class="fa fa-calendar-check-o"></i>  {{ i.patientname }} appointment with {{ i.doctorname }} on {{i.appointmentdate}}</a></h5>
+                            </div>
+                            <div class = "card-body collapsible-body">
+                                <table align="center" class="card-text" style="font-size: 19px;">
+                                    <tr>
+                                        <td>Doctor Name:</td>
+                                        <td>{{i.doctorname}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Patient Name:</td>
+                                        <td>{{i.patientname}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Appointment Date:</td>
+                                        <td>{{i.appointmentdate}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Appointment Time:</td>
+                                        <td>{{i.appointmenttime}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Symptoms:</td>
+                                        <td>{{i.symptoms}}</td>
+                                    </tr> 
+
+                                </table>
+                            </div>
+                        </li>
+                    </ul>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock main %}
